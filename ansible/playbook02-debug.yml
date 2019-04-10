@@ -1,0 +1,23 @@
+---
+- name: How to display values to the screen
+  hosts: localhost
+  gather_facts: yes
+
+  vars:
+    vendorip: "192.168.30.10"
+
+  tasks:
+
+  - name: learning to debug
+    debug: 
+      msg: The value of the variable vendorip is {{ vendorip }}
+
+  - name: Just dump a var
+    debug:
+      var: vendorip
+
+  - name: Display ansible_fact
+    debug:
+      var: ansible_all_ipv4_addresses
+
+...

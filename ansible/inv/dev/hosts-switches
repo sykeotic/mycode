@@ -1,0 +1,18 @@
+[eosswitches]
+sw1 ansible_host=172.16.2.10
+sw2 ansible_host=172.16.2.20
+
+[eosswitches:vars]
+ansible_connection=network_cli
+ansible_network_os=eos
+ansible_become=yes
+ansible_become_method=enable
+ansible_user=admin
+ansible_ssh_pass=alta3
+
+[ciscoswitches]
+sw3 ansible_host=1.2.3.4
+
+[ciscoswitches:vars]
+ansible_network_os=ios
+ansible_user=blisko

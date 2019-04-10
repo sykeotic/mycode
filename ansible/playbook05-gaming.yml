@@ -1,0 +1,33 @@
+---
+- name: game of win or lose
+  hosts: localhost
+  #  vars:
+  #    highlow: "{{ lookup('url', 'https://www.random.org/integers/?num=1&min=0&max=1&col=5&base=10&format=plain&rnd=new') }}"
+
+  tasks:
+  - name: reachout and get a URL value
+    get_url:
+        url: https://www.random.org/integers/?num=1&min=0&max=1&col=5&base=10&format=plain&rnd=new
+        dest: ~/rand.txt
+        force: yes
+
+  - name: cat out a file
+    command: cat ~/rand.txt
+    register: highlow
+
+  - name: Display highlow
+    debug:
+      var: highlow
+      #  verbosity: 3
+
+
+  - name: YOU WIN
+    debug:
+      msg: YOU WIN!
+    when: '"1" in highlow.stdout'
+
+  - name: YOU LOSE
+    debug:
+      msg: YOU LOSE SUCKA!
+    when: '"0" in highlow.stdout'
+

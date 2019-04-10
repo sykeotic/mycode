@@ -1,0 +1,13 @@
+---
+- hosts: plante-express
+  tasks:
+
+  - apt:
+      name: figlet
+      state: absent
+    become: True
+
+  - apt:
+     name: bastet
+     state: absent
+    become: True
