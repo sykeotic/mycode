@@ -1,0 +1,19 @@
+[siteone]
+sw1 ansible_host=172.16.2.10
+
+[sitetwo]
+sw2 ansible_host=172.16.2.20
+
+[aristaswitches:children]
+; group of of groups
+siteone
+sitetwo
+
+[aristaswitches:vars]
+; this are group variables
+ansible_network_os=eos
+ansible_connection=network_cli
+ansible_become=yes
+ansible_become_method=enable
+ansible_user=admin
+ansible_ssh_pass=alta3

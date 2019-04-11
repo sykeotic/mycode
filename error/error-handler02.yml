@@ -1,0 +1,14 @@
+---
+- name: More handling of errors
+  hosts: planet-express
+  tasks:
+    - block:
+        - shell: "echo 'My First task ran' > example.txt"
+        - shell: "echo 'My Second task ran' >> example.txt"
+        - shell: "echo 'My Third task ran' >> example.txt"
+      rescue:
+        - shell: "echo 'My rescue code ran. Maybe it undoes whatever the block \
+          tried to do' >> example.txt"
+      always:
+        - shell: "echo 'This always runs. Maybe it is a commit, or an \
+          entry in a log' >> example.txt"

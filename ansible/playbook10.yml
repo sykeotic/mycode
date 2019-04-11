@@ -1,0 +1,11 @@
+---
+- name: Learning vault
+  hosts: localhost
+
+  vars_files:
+    - vault.yml
+
+  tasks:
+
+  - debug:
+      var: zpass

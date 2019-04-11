@@ -1,0 +1,22 @@
+---
+- name: Another network playbook example
+  hosts: ~^arista
+  gather_facts: no
+
+
+  tasks:
+   - name: Precheck
+     block:
+      - name: import precheck role
+        import_role:
+           name: alta3.example
+
+     rescue:
+      - name: precheck - FAILED Sucka!!
+        fail:
+          msg: EXITING Playbook. Get your Sh** Straight!
+           
+         #  - name: changes
+         #    block:
+         #    - name: import VLAN TAGGING role
+
