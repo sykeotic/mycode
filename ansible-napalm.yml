@@ -1,0 +1,12 @@
+---
+- hosts: ~^arista
+  gather_facts: no
+
+  tasks:
+  - name: Validate
+    napalm_validate:
+      hostname: "{{ ansible_host }}"
+      username: "{{ user }}"
+      dev_os: "{{ os }}"
+      password: "{{ passwd }}"
+      validation_file: "/home/student/mycode/swi_verficiation.yml"

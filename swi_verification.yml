@@ -1,0 +1,20 @@
+---
+- get_facts:
+    os_version: 4.17
+- get_interfaces_ip:
+    management1:
+      ipv4:
+        172.16.2.10:
+          prefix_lenght: 24
+        _mode: strict
+- get_environment:
+    memory:
+      avaialable_ram: ">1000"
+- ping:
+     _name: ping_sw2
+     _kwargs:
+       destination: 172.16.2.20
+       source: 172.16.2.10
+     success:
+       packet_loss: 0
+     _mode: strict
