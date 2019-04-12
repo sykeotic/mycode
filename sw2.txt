@@ -164,7 +164,7 @@
             "type": "routed"
         }
     },
-    "net_memfree_mb": 848,
+    "net_memfree_mb": 941,
     "net_memtotal_mb": 1848,
     "net_model": "vEOS",
     "net_neighbors": {

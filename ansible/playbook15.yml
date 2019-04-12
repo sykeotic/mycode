@@ -1,0 +1,13 @@
+---
+- name: run a script
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Run a script
+    script: /home/studdent/mycode/norad.py
+    args:
+      executable: python3
+    register: results
+  - name: display results
+    debug:
+      var: results.stdout_lines

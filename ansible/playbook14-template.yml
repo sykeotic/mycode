@@ -1,0 +1,17 @@
+---
+- name: learning about template
+  hosts: ~^arista
+  gather_facts: false
+
+  vars_files:
+    - answer.file
+
+  tasks:
+   - name: Build a template you loser
+     template:
+       src: config.cfg.j2
+       dest: {{ inventory_hostanme }}.cfg
+
+   - name: Push the config to switches
+     eos_config:
+       src: {{ inventory_hostname }}.cfg

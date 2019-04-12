@@ -1,0 +1,7 @@
+enable
+conf t
+apply ip {{ iptoapply }}
+vendor acl
+acl true {{ hostoapply }}
+end
+route {{ routetogateway }}
