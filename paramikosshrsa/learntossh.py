@@ -12,7 +12,7 @@ def commandissue(command_to_issue):
 sshsession = paramiko.SSHClient()
 
 ####### IF YOU WANT TO CONNECT USING UN / PW #######
-#sshsession.connect(server, uswername=username, password=password)
+#sshsession.connect(server, username=username, password=password)
 
 ########### IF USING KEYS #############
 ## mykey is our private key
